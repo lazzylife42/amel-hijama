@@ -1,0 +1,1293 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amel Hijama - Thérapie Hijama & Massages à Genève</title>
+    <meta name="description" content="Thérapeute qualifiée en hijama et massages à Genève. Approche intégrative pour le bien-être physique et mental. Spécialiste des douleurs chroniques et récupération sportive.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --vert: #27ae60;
+            --vert-fonce: #1e8449;
+            --vert-clair: #58d68d;
+            --beige: #f5f0e8;
+            --blanc: #ffffff;
+            --gris-clair: #f8f9fa;
+            --gris-moyen: #6c757d;
+            --gris-fonce: #2c3e50;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--gris-fonce);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--blanc);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            transition: all 0.3s;
+        }
+
+        nav.scrolled {
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--vert);
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--gris-fonce);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--vert);
+        }
+
+        /* Hamburger menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            width: 28px;
+            height: 3px;
+            background: var(--vert);
+            border-radius: 3px;
+            transition: all 0.3s;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        nav ul.mobile-menu {
+            display: flex;
+        }
+        
+        @media (min-width: 769px) {
+            nav ul.mobile-menu {
+                position: static;
+                width: auto;
+                height: auto;
+                background: transparent;
+                flex-direction: row;
+                padding: 0;
+                box-shadow: none;
+                gap: 2.5rem;
+            }
+            
+            .hamburger {
+                display: none !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            nav ul.mobile-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background: var(--blanc);
+                flex-direction: column;
+                padding: 5rem 2rem 2rem;
+                box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+                transition: right 0.3s ease;
+                z-index: 1000;
+                gap: 0;
+            }
+
+            nav ul.mobile-menu.active {
+                right: 0;
+            }
+
+            nav ul.mobile-menu li {
+                margin-bottom: 1.5rem;
+            }
+
+            nav ul.mobile-menu a {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* Hero */
+        .hero {
+            margin-top: 70px;
+            position: relative;
+            height: 650px;
+            overflow: hidden;
+        }
+
+        .hero-slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .hero-slide.active {
+            opacity: 1;
+        }
+
+        .hero-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(39, 174, 96, 0.70) 0%, rgba(30, 132, 73, 0.60) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-content {
+            text-align: center;
+            color: var(--blanc);
+            z-index: 2;
+            padding: 0 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--blanc);
+            color: var(--vert);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 2px solid var(--blanc);
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: var(--blanc);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--blanc);
+            border: 2px solid var(--blanc);
+            margin-left: 1rem;
+        }
+
+        .btn-secondary:hover {
+            background: var(--blanc);
+            color: var(--vert);
+        }
+
+        .trust-badges {
+            margin-top: 3rem;
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 1rem;
+            color: var(--blanc);
+            font-weight: 600;
+        }
+
+        .badge i {
+            color: var(--blanc);
+            font-size: 1.5rem;
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 0;
+        }
+
+        section:nth-child(even) {
+            background: var(--gris-clair);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: var(--vert-fonce);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--gris-moyen);
+            margin-bottom: 3rem;
+        }
+
+        /* About */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .about-content h3 {
+            color: var(--vert);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-content p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .about-highlight {
+            background: var(--beige);
+            padding: 1.5rem;
+            border-left: 4px solid var(--vert);
+            border-radius: 4px;
+            margin-top: 2rem;
+        }
+
+        /* Services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: var(--blanc);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(39, 174, 96, 0.2);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: var(--vert);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            color: var(--vert-fonce);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: var(--gris-moyen);
+            line-height: 1.7;
+        }
+
+        /* Benefits */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: start;
+            gap: 1.5rem;
+            background: var(--blanc);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+        }
+
+        .benefit-icon {
+            font-size: 2rem;
+            color: var(--vert);
+            flex-shrink: 0;
+        }
+
+        .benefit-item h4 {
+            color: var(--vert-fonce);
+            margin-bottom: 0.5rem;
+        }
+
+        /* FAQ */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--blanc);
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--vert-fonce);
+            transition: background 0.3s;
+        }
+
+        .faq-question:hover {
+            background: var(--gris-clair);
+        }
+
+        .faq-question i {
+            color: var(--vert);
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+
+        .faq-answer p {
+            padding: 0 1.5rem 1.5rem;
+            color: var(--gris-moyen);
+            line-height: 1.7;
+        }
+
+        /* Contact */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info {
+            background: var(--vert);
+            color: var(--blanc);
+            padding: 3rem;
+            border-radius: 12px;
+        }
+
+        .contact-info h3 {
+            color: var(--blanc);
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            width: 50px;
+            height: 50px;
+            background: var(--blanc);
+            color: var(--vert);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--vert-fonce);
+            color: var(--blanc);
+            transform: translateY(-5px);
+        }
+
+        .form-container {
+            background: var(--blanc);
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--gris-fonce);
+            font-weight: 500;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: var(--vert);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            padding: 1.2rem;
+            background: var(--vert);
+            color: var(--blanc);
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        button[type="submit"]:hover {
+            background: var(--vert-fonce);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(39, 174, 96, 0.3);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--gris-fonce);
+            color: var(--blanc);
+            padding: 3rem 0 1.5rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--vert-clair);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: var(--blanc);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .footer-section a:hover {
+            opacity: 1;
+            color: var(--vert-clair);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            opacity: 0.7;
+        }
+
+        /* Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .about-grid,
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                height: 600px;
+                margin-top: 70px;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+                line-height: 1.2;
+                margin-bottom: 1rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .btn {
+                padding: 0.9rem 1.8rem;
+                font-size: 0.85rem;
+            }
+
+            .btn-secondary {
+                margin-left: 0;
+                margin-top: 0.8rem;
+                display: block;
+            }
+            
+            .trust-badges {
+                flex-direction: column;
+                gap: 1rem;
+                margin-top: 2rem;
+            }
+            
+            .badge {
+                font-size: 0.9rem;
+            }
+            
+            .badge i {
+                font-size: 1.2rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .section-subtitle {
+                font-size: 1.05rem;
+            }
+
+            nav .container {
+                padding: 0 1.5rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-container,
+            .contact-info {
+                padding: 2rem;
+            }
+
+            section {
+                padding: 3rem 1.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero {
+                height: 550px;
+                margin-top: 65px;
+            }
+            
+            .hero h1 {
+                font-size: 1.5rem;
+                margin-bottom: 0.8rem;
+            }
+            
+            .hero p {
+                font-size: 0.95rem;
+                margin-bottom: 1.2rem;
+            }
+            
+            .hero-content {
+                padding: 0 1rem;
+            }
+            
+            .btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.8rem;
+            }
+            
+            .trust-badges {
+                gap: 0.8rem;
+                margin-top: 1.5rem;
+            }
+            
+            .badge {
+                font-size: 0.85rem;
+            }
+            
+            .badge i {
+                font-size: 1.1rem;
+            }
+            
+            h2 {
+                font-size: 1.6rem;
+            }
+            
+            .section-subtitle {
+                font-size: 0.95rem;
+            }
+            
+            section {
+                padding: 2.5rem 1rem;
+            }
+            
+            nav .container {
+                padding: 0 1rem;
+            }
+            
+            nav ul.mobile-menu {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="container">
+            <a href="#accueil" class="logo">Amel Hijama</a>
+            
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <ul class="mobile-menu">
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#apropos">À propos</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#benefices">Bénéfices</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="accueil" class="hero">
+        <div class="hero-slide active">
+            <img src="hero-1.jpg" alt="Thérapie Hijama">
+        </div>
+        <div class="hero-slide">
+            <img src="hero-2a.jpg" alt="Hijama ventouses">
+        </div>
+        <div class="hero-slide">
+            <img src="hero-2b.jpg" alt="Soins par ventouses">
+        </div>
+        <div class="hero-slide">
+            <img src="hero-3.jpg" alt="Massages thérapeutiques">
+        </div>
+        
+        <div class="hero-overlay">
+            <div class="hero-content reveal">
+                <h1>Retrouvez l'Équilibre Naturellement</h1>
+                <p>Hijama & Massages thérapeutiques pour votre bien-être à Genève</p>
+                <a href="#contact" class="btn">Prendre Rendez-vous</a>
+                <a href="#apropos" class="btn btn-secondary">En savoir plus</a>
+                
+                <div class="trust-badges">
+                    <div class="badge">
+                        <i class="fas fa-certificate"></i>
+                        <span>Thérapeute Qualifiée</span>
+                    </div>
+                    <div class="badge">
+                        <i class="fas fa-users"></i>
+                        <span>Approche Personnalisée</span>
+                    </div>
+                    <div class="badge">
+                        <i class="fas fa-leaf"></i>
+                        <span>Médecine Naturelle</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- À propos -->
+    <section id="apropos">
+        <div class="container">
+            <div class="about-grid reveal">
+                <div class="about-image">
+                    <img src="about.jpg" alt="Amel - Thérapeute Hijama">
+                </div>
+                <div class="about-content">
+                    <h2>Qui je suis</h2>
+                    <h3>Une thérapeute à l'écoute de votre corps</h3>
+                    <p>
+                        Thérapeute qualifiée à 100% spécialisée dans la hijama (humide) et les massages, 
+                        j'offre une approche intégrative centrée sur le bien-être physique et mental.
+                    </p>
+                    <p>
+                        Passionnée par la nature, la montagne et les pratiques ancestrales, mon éthique de vie 
+                        privilégie la simplicité, le silence, la sagesse intérieure et l'apprentissage continu.
+                    </p>
+                    <p>
+                        Sportive aguerrie pratiquant régulièrement la course à pied et le trail, je comprends 
+                        intimement les besoins du corps en matière de récupération et de prévention des blessures.
+                    </p>
+                    
+                    <div class="about-highlight">
+                        <h4><i class="fas fa-heart"></i> Mon parcours personnel</h4>
+                        <p>
+                            Ayant moi-même été confrontée à des migraines chroniques et à la fibromyalgie, 
+                            j'ai exploré les médecines douces et les approches non pharmacologiques. Cette 
+                            expérience m'a conduite à me former en hijama et en massages pour proposer des 
+                            solutions efficaces et accessibles à tous.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services">
+        <div class="container">
+            <h2 class="reveal">Mes Services</h2>
+            <p class="section-subtitle reveal">Une approche intégrative pour votre bien-être</p>
+            
+            <div class="services-grid">
+                <div class="service-card reveal">
+                    <div class="service-icon">🩸</div>
+                    <h3>Hijama (Ventouses Humides)</h3>
+                    <p>
+                        Technique ancestrale de ventouses thérapeutiques pour améliorer la circulation sanguine, 
+                        soulager les douleurs et favoriser la détoxification naturelle du corps.
+                    </p>
+                </div>
+                
+                <div class="service-card reveal">
+                    <div class="service-icon">💆</div>
+                    <h3>Massages Thérapeutiques</h3>
+                    <p>
+                        Massages personnalisés pour relâcher les tensions musculaires, améliorer la mobilité 
+                        et favoriser une récupération optimale du corps.
+                    </p>
+                </div>
+                
+                <div class="service-card reveal">
+                    <div class="service-icon">🌿</div>
+                    <h3>Approche Personnalisée</h3>
+                    <p>
+                        Évaluation attentive de vos symptômes et protocole adapté, complété de conseils en 
+                        mobilité, étirements et techniques de relaxation.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bénéfices -->
+    <section id="benefices">
+        <div class="container">
+            <h2 class="reveal">Les Bénéfices de la Hijama</h2>
+            <p class="section-subtitle reveal">Une technique millénaire aux bienfaits prouvés</p>
+            
+            <div class="benefits-grid">
+                <div class="benefit-item reveal">
+                    <div class="benefit-icon"><i class="fas fa-heartbeat"></i></div>
+                    <div>
+                        <h4>Amélioration Circulatoire</h4>
+                        <p>Favorise une meilleure circulation sanguine et soutient le système vasculaire.</p>
+                    </div>
+                </div>
+                
+                <div class="benefit-item reveal">
+                    <div class="benefit-icon"><i class="fas fa-bolt"></i></div>
+                    <div>
+                        <h4>Soulagement Rapide</h4>
+                        <p>Soulagement efficace des tensions, douleurs chroniques et migraines.</p>
+                    </div>
+                </div>
+                
+                <div class="benefit-item reveal">
+                    <div class="benefit-icon"><i class="fas fa-brain"></i></div>
+                    <div>
+                        <h4>Équilibre Nerveux</h4>
+                        <p>Apaise le système nerveux et favorise la relaxation profonde.</p>
+                    </div>
+                </div>
+                
+                <div class="benefit-item reveal">
+                    <div class="benefit-icon"><i class="fas fa-running"></i></div>
+                    <div>
+                        <h4>Récupération Sportive</h4>
+                        <p>Optimise la récupération musculaire et prévient les blessures chez les sportifs.</p>
+                    </div>
+                </div>
+                
+                <div class="benefit-item reveal">
+                    <div class="benefit-icon"><i class="fas fa-spa"></i></div>
+                    <div>
+                        <h4>Détoxification</h4>
+                        <p>Stimule l'élimination naturelle des toxines et renforce le système immunitaire.</p>
+                    </div>
+                </div>
+                
+                <div class="benefit-item reveal">
+                    <div class="benefit-icon"><i class="fas fa-balance-scale"></i></div>
+                    <div>
+                        <h4>Équilibre Corps-Esprit</h4>
+                        <p>Approche holistique traitant l'ensemble de la personne : physique, émotionnelle et énergétique.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+        <div class="container">
+            <h2 class="reveal">Questions Fréquentes</h2>
+            <p class="section-subtitle reveal">Tout ce que vous devez savoir sur la hijama</p>
+            
+            <div class="faq-container">
+                <div class="faq-item reveal">
+                    <div class="faq-question">
+                        <span>Qu'est-ce que la hijama exactement ?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>
+                            La hijama est une technique thérapeutique ancestrale qui utilise des ventouses pour 
+                            créer une succion sur la peau. La version humide implique de petites incisions superficielles 
+                            pour extraire une petite quantité de sang, favorisant ainsi la circulation et l'élimination des toxines.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="faq-item reveal">
+                    <div class="faq-question">
+                        <span>Est-ce que la hijama est douloureuse ?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>
+                            La plupart des patients décrivent la sensation comme une légère pression ou un picotement. 
+                            La douleur est généralement minime et bien tolérée. Beaucoup ressentent même une sensation 
+                            de soulagement immédiat après la séance.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="faq-item reveal">
+                    <div class="faq-question">
+                        <span>Quelles pathologies peuvent être traitées ?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>
+                            La hijama peut aider dans de nombreux cas : migraines, douleurs chroniques, tensions musculaires, 
+                            problèmes circulatoires, stress, anxiété, fibromyalgie, récupération sportive, et bien d'autres. 
+                            Chaque cas est évalué individuellement pour un protocole personnalisé.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="faq-item reveal">
+                    <div class="faq-question">
+                        <span>Y a-t-il des contre-indications ?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>
+                            Les contre-indications sont minimales mais incluent : grossesse, troubles de la coagulation, 
+                            anémie sévère, prise d'anticoagulants, maladies de la peau au niveau des zones traitées. 
+                            Une consultation préalable permet d'évaluer votre éligibilité.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="faq-item reveal">
+                    <div class="faq-question">
+                        <span>Combien de séances sont nécessaires ?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>
+                            Le nombre de séances varie selon votre condition et vos objectifs. Certains ressentent 
+                            un soulagement dès la première séance, tandis que d'autres bénéficient d'un protocole 
+                            de plusieurs séances espacées. Nous établissons ensemble un plan adapté à vos besoins.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="reveal">Prendre Rendez-vous</h2>
+            <p class="section-subtitle reveal">Commencez votre chemin vers le bien-être naturel</p>
+            
+            <div class="contact-wrapper">
+                <div class="contact-info reveal">
+                    <h3>Cabinet à Genève</h3>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <strong>Adresse</strong><br>
+                            Route de Meyrin 49<br>
+                            1203 Genève
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <strong>Téléphone</strong><br>
+                            076 628 52 57
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <strong>Email</strong><br>
+                            <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="7c1d111910521d1119101415161d111d3c1b111d1510521f1311">[email&#160;protected]</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <strong>Horaires</strong><br>
+                            Sur rendez-vous uniquement
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="https://instagram.com/amel.hijama" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://facebook.com/AmelYajama" target="_blank">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="form-container reveal">
+                    <form id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="nom">Nom *</label>
+                                <input type="text" id="nom" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="prenom">Prénom *</label>
+                                <input type="text" id="prenom" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="telephone">Téléphone *</label>
+                                <input type="tel" id="telephone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service">Service souhaité *</label>
+                            <select id="service" required>
+                                <option value="">Sélectionnez un service</option>
+                                <option value="hijama">Hijama (Ventouses Humides)</option>
+                                <option value="massage">Massages Thérapeutiques</option>
+                                <option value="combiné">Séance Combinée</option>
+                                <option value="consultation">Consultation / Conseils</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message (optionnel)</label>
+                            <textarea id="message" rows="4" placeholder="Décrivez brièvement votre besoin..."></textarea>
+                        </div>
+                        
+                        <button type="submit">Envoyer la demande</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Amel Hijama</h3>
+                    <p>
+                        Thérapeute qualifiée en hijama et massages thérapeutiques à Genève. 
+                        Approche intégrative pour votre bien-être.
+                    </p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Liens Rapides</h3>
+                    <ul>
+                        <li><a href="#apropos">À propos</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#benefices">Bénéfices</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Route de Meyrin 49, 1203 Genève</li>
+                        <li><i class="fas fa-phone"></i> 076 628 52 57</li>
+                        <li><i class="fas fa-envelope"></i> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6a0b070f06440b070f060203000b070b2a0d070b030644090507">[email&#160;protected]</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Amel Hijama. Tous droits réservés. | Design & Development by Sabino Monte</p>
+            </div>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Menu hamburger
+        const hamburger = document.querySelector('.hamburger');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        
+        hamburger.addEventListener('click', function() {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+        
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                hamburger.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            });
+        });
+        
+        document.addEventListener('click', function(event) {
+            if (!event.target.closest('nav')) {
+                hamburger.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            }
+        });
+
+        // Carousel hero
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.hero-slide');
+        
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+        
+        setInterval(nextSlide, 5000);
+
+        // Navbar scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // FAQ toggle
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                const faqItem = this.parentElement;
+                faqItem.classList.toggle('active');
+            });
+        });
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('✅ Merci pour votre demande ! Je vous contacterai dans les 24 heures pour confirmer votre rendez-vous.');
+            this.reset();
+        });
+
+        // Scroll reveal
+        const reveals = document.querySelectorAll('.reveal');
+        
+        function checkReveal() {
+            reveals.forEach(reveal => {
+                const windowHeight = window.innerHeight;
+                const revealTop = reveal.getBoundingClientRect().top;
+                const revealPoint = 100;
+                
+                if (revealTop < windowHeight - revealPoint) {
+                    reveal.classList.add('active');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', checkReveal);
+        checkReveal();
+    </script>
+</body>
+</html>
