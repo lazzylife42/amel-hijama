@@ -1,0 +1,9 @@
+# Ignore tout sauf les fichiers du site
+*
+
+# Fichiers à inclure dans le repo
+!index.html
+!about.jpg
+!hero-*.jpg
+!.gitignore
+!README.md
