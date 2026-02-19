@@ -383,6 +383,13 @@
             margin-bottom: 1rem;
         }
 
+        .service-card .price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--vert);
+            margin: 1rem 0;
+        }
+
         .service-card p {
             color: var(--gris-moyen);
             line-height: 1.7;
@@ -814,6 +821,7 @@
                 <li><a href="#services">Services</a></li>
                 <li><a href="#benefices">Bénéfices</a></li>
                 <li><a href="#faq">FAQ</a></li>
+                <li><a href="#tarifs">Tarifs</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -844,7 +852,7 @@
                 <div class="trust-badges">
                     <div class="badge">
                         <i class="fas fa-certificate"></i>
-                        <span>Thérapeute Qualifiée</span>
+                        <span>Thérapeute Agréée</span>
                     </div>
                     <div class="badge">
                         <i class="fas fa-users"></i>
@@ -870,7 +878,7 @@
                     <h2>Qui je suis</h2>
                     <h3>Une thérapeute à l'écoute de votre corps</h3>
                     <p>
-                        Thérapeute qualifiée à 100% spécialisée dans la hijama (humide) et les massages, 
+                        Thérapeute agréée spécialisée dans la hijama (humide) et les massages, 
                         j'offre une approche intégrative centrée sur le bien-être physique et mental.
                     </p>
                     <p>
@@ -1047,9 +1055,8 @@
                     </div>
                     <div class="faq-answer">
                         <p>
-                            Les contre-indications sont minimales mais incluent : grossesse, troubles de la coagulation, 
-                            anémie sévère, prise d'anticoagulants, maladies de la peau au niveau des zones traitées. 
-                            Une consultation préalable permet d'évaluer votre éligibilité.
+                            Aucune contre-indication majeure n'est à signaler. Toutefois, si vous avez la moindre interrogation, 
+                            n'hésitez pas à me solliciter : je vous confirmerai avec plaisir ce qui est réalisable ou non.
                         </p>
                     </div>
                 </div>
@@ -1066,6 +1073,37 @@
                             de plusieurs séances espacées. Nous établissons ensemble un plan adapté à vos besoins.
                         </p>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tarifs -->
+    <section id="tarifs">
+        <div class="container">
+            <h2 class="reveal">Tarifs</h2>
+            <p class="section-subtitle reveal">Des tarifs transparents pour votre bien-être</p>
+            
+            <div class="services-grid">
+                <div class="service-card reveal">
+                    <div class="service-icon">💆</div>
+                    <h3>Hijama & Massage</h3>
+                    <p class="price">130 CHF</p>
+                    <p>Séance complète de 1 heure combinant hijama et massage thérapeutique pour un soin intégral.</p>
+                </div>
+                
+                <div class="service-card reveal">
+                    <div class="service-icon">✨</div>
+                    <h3>Massage & Hijama</h3>
+                    <p class="price">180 CHF</p>
+                    <p>Séance approfondie de 1h30 pour une relaxation et récupération optimales.</p>
+                </div>
+                
+                <div class="service-card reveal">
+                    <div class="service-icon">👶</div>
+                    <h3>Soin Enfant</h3>
+                    <p class="price">60 CHF</p>
+                    <p>Séance adaptée aux enfants de 30 minutes dans un cadre rassurant et bienveillant.</p>
                 </div>
             </div>
         </div>
@@ -1102,7 +1140,7 @@
                         <i class="fas fa-envelope"></i>
                         <div>
                             <strong>Email</strong><br>
-                            <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="7c1d111910521d1119101415161d111d3c1b111d1510521f1311">[email&#160;protected]</a>
+                            amelhijama@gmail.com
                         </div>
                     </div>
                     
@@ -1178,7 +1216,7 @@
                 <div class="footer-section">
                     <h3>Amel Hijama</h3>
                     <p>
-                        Thérapeute qualifiée en hijama et massages thérapeutiques à Genève. 
+                        Thérapeute agréée en hijama et massages thérapeutiques à Genève. 
                         Approche intégrative pour votre bien-être.
                     </p>
                 </div>
@@ -1190,6 +1228,7 @@
                         <li><a href="#services">Services</a></li>
                         <li><a href="#benefices">Bénéfices</a></li>
                         <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#tarifs">Tarifs</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
@@ -1199,7 +1238,7 @@
                     <ul>
                         <li><i class="fas fa-map-marker-alt"></i> Route de Meyrin 49, 1203 Genève</li>
                         <li><i class="fas fa-phone"></i> 076 628 52 57</li>
-                        <li><i class="fas fa-envelope"></i> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6a0b070f06440b070f060203000b070b2a0d070b030644090507">[email&#160;protected]</a></li>
+                        <li><i class="fas fa-envelope"></i> amelhijama@gmail.com</li>
                     </ul>
                 </div>
             </div>
@@ -1210,7 +1249,7 @@
         </div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         // Menu hamburger
         const hamburger = document.querySelector('.hamburger');
         const mobileMenu = document.querySelector('.mobile-menu');
